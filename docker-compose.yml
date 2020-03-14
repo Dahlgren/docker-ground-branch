@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  ground-branch:
+    build: .
+    image: dahlgren/ground-branch
+    ports:
+      - 7777:7777/udp
+      - 27015:27015/udp
+    volumes:
+      - ./ServerConfig:/groundbranch/GroundBranch/ServerConfig
