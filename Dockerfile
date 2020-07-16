@@ -1,5 +1,6 @@
 FROM cm2network/steamcmd AS download
-RUN /home/steam/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/groundbranch +login anonymous +app_update 476400 +quit
+ARG appid=476400
+RUN /home/steam/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/groundbranch +login anonymous +app_update ${appid} +quit
 
 FROM debian:bookworm-slim
 WORKDIR /groundbranch

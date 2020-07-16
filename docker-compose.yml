@@ -9,3 +9,16 @@ services:
       - 27015:27015/udp
     volumes:
       - ./ServerConfig:/groundbranch/GroundBranch/ServerConfig
+
+  ground-branch-cte:
+    build: 
+      context: .
+      args:
+        appid: 1207110
+    image: dahlgren/ground-branch:cte
+    ports:
+      - 7777:7777/udp
+      - 27015:27015/udp
+    volumes:
+      - ./ServerConfig:/groundbranch/GroundBranch/ServerConfig
+
