@@ -1,5 +1,5 @@
 FROM cm2network/steamcmd AS download
-RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/groundbranch +app_update 476400 +quit
+RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/groundbranch +app_update 1207110 +quit
 
 FROM debian:sid-slim
 WORKDIR /groundbranch
@@ -21,5 +21,6 @@ COPY start.sh .
 
 ENV WINEDEBUG=fixme-all
 EXPOSE 7777/udp
+EXPOSE 7778/udp
 EXPOSE 27015/udp
 ENTRYPOINT ["/groundbranch/start.sh"]

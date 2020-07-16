@@ -3,7 +3,7 @@ version: '2'
 services:
   ground-branch:
     build: .
-    image: dahlgren/ground-branch
+    image: dahlgren/ground-branch:cte
     ports:
       - 7777:7777/udp
       - 27015:27015/udp
