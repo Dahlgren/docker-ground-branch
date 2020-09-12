@@ -7,13 +7,7 @@ COPY --from=download /home/steam/groundbranch .
 
 # Install latest Wine Staging with vcruntime140_1.dll support
 RUN apt-get update && \
-	apt install -y wget gnupg2 && \
-	wget -nc https://dl.winehq.org/wine-builds/winehq.key && \
-	apt-key add winehq.key && rm winehq.key && \
-	echo deb 'https://dl.winehq.org/wine-builds/debian/ buster main' > /etc/apt/sources.list.d/wine.list && \
-	dpkg --add-architecture i386 && \
-	apt update && \
-	apt install -y winehq-staging && \
+	apt install -y ca-certificates gnupg2 wine-development && \
 	rm -rf /var/lib/apt/lists/*
 
 COPY steam_appid.txt .
