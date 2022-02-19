@@ -1,2 +1,2 @@
 #!/bin/bash
-wine64 GroundBranchServer.exe $@
+wine64 GroundBranch/Binaries/Win64/GroundBranchServer-Win64-Shipping.exe $@
