@@ -1,5 +1,5 @@
 FROM cm2network/steamcmd AS download
-RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/groundbranch +app_update 476400 +quit
+RUN /home/steam/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/groundbranch +login anonymous +app_update 476400 +quit
 
 FROM debian:sid-slim
 WORKDIR /groundbranch
