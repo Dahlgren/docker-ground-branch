@@ -1,9 +1,9 @@
-FROM cm2network/steamcmd AS download
-RUN /home/steam/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/groundbranch +login anonymous +app_update 476400 +quit
+FROM dahlgren/depotdownloader AS download
+RUN dotnet /depotdownloader/DepotDownloader.dll -os windows -dir /groundbranch -app 476400
 
 FROM debian:bookworm-slim
 WORKDIR /groundbranch
-COPY --from=download /home/steam/groundbranch .
+COPY --from=download /groundbranch .
 
 RUN dpkg --add-architecture i386 && \
 	apt-get update && \
