@@ -5,13 +5,8 @@ FROM debian:bookworm-slim
 WORKDIR /groundbranch
 COPY --from=download /home/steam/groundbranch .
 
-RUN dpkg --add-architecture i386 && \
-	apt-get update && \
-	apt-get install -y curl gnupg2 && \
-	echo "deb https://dl.winehq.org/wine-builds/debian/ bookworm main" > /etc/apt/sources.list.d/winehq.list && \
-	curl "https://dl.winehq.org/wine-builds/winehq.key" | apt-key add - && \
-	apt-get update && \
-	apt-get install -y winehq-stable && \
+RUN apt-get update && \
+	apt-get install -y ca-certificates gnupg2 wine64 && \
 	rm -rf /var/lib/apt/lists/*
 
 COPY steam_appid.txt .
